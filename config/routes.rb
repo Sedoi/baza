@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
 
-  get 'products/index'
-  get 'products/new', to: 'products#new'
-  resources :products
+   resources :products
 
 
   get 'dashboard/index'
