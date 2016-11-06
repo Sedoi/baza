@@ -1,2 +1,5 @@
 <h1>Продукция</h1>
 <%= link_to "Добавить", new_product_path %>
+<% for name in @tovars %>
+    <i><%=tovar.name%></i><br/>
+<%  end %>
