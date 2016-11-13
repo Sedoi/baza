@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
     @tovars = Tovar.all.each
   end
   def new
-    @tovars = Tovar.new
+    if @tovars = Tovar.new(params[:tovar])
+      # Товар успешно добавлен
+    else
+      # Ошибка!
+      end
   end
 end

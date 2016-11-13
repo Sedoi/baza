@@ -1,2 +1,0 @@
-class Tovar < ApplicationRecord
-end
