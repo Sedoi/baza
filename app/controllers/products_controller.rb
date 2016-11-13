@@ -1,10 +1,11 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.all.each
+    @products = Product.all
   end
   def new
-    if @products == Product.create(params[:title])
-      redirect_to products_path
+    @products = Product.new(params[:title])
+    if @products.save
+       redirect_to products_path
       # Товар успешно добавлен
     else
       redirect_to new_product_path
