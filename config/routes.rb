@@ -2,7 +2,6 @@ Rails.application.routes.draw do
 
 
    resources :products
-   resources :tovar
 
 
   get 'dashboard/index'

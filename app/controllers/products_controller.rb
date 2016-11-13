@@ -1,9 +1,9 @@
 class ProductsController < ApplicationController
   def index
-    @tovars = Tovar.all.each
+    @products = Product.all.each
   end
   def new
-    if @tovars = Tovar.new(params[:tovar])
+    if @products = Product.new(params[:product])
       # Товар успешно добавлен
     else
       # Ошибка!

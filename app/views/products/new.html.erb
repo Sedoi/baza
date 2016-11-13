@@ -1,10 +1,8 @@
 <h1>Введите новую продукцию</h1>
-<% form_for :product, @tovars, :url => { :action => "new" }, :html => {:id => 'new_tovar' } do |f| %>
+<% form_for :product, @products, :url => { :action => "new" }, :html => {:id => 'new_product' } do |f| %>
     <label>Название</label>
-    <%= f.text_field :name %><br />
+    <%= f.text_field :title %><br />
     <label>Количество</label>
-    <%= f.text_area :number %><br />
-    <label>Цена</label>
-    <%= f.text_field :price %><br />
+    <%= f.text_area :description %><br />
     <%= submit_tag 'Добавить' %>
 <% end %>
