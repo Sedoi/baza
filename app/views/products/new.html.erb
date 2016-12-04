@@ -1,5 +1,5 @@
 <h1>Введите новую продукцию</h1>
-<% form_for :products, @products, :url => { :action => "new" } do |f| %>
+<% form_for @product do |f| %>
     <label>Название</label>
     <%= f.text_field :title %><br />
     <label>Описание</label>

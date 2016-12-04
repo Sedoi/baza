@@ -2,15 +2,20 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
+
   def new
     @products = Product.new(params[:title])
     if @products.save
-       redirect_to products_path
+       redirect_to @products
       # Товар успешно добавлен
     else
-      redirect_to new_product_path
+      render 'new'
 
       # Ошибка!
       end
+  end
+
+  def show
+    @product = Product.new
   end
 end
