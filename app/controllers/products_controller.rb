@@ -3,19 +3,30 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def new
-    @products = Product.new(params[:title])
-    if @products.save
-       redirect_to @products
-      # Товар успешно добавлен
-    else
-      render 'new'
-
-      # Ошибка!
-      end
+  def show
+    @products = Product.all
   end
 
-  def show
+  def new
     @product = Product.new
   end
+
+  def create
+    @product = Product.new(product_params)
+    if @product.save
+      flash[:success] = "You could add new item:)"
+      redirect_to action: :index
+    else
+      flash.now[:error] = "You couldn't add an item."
+      render 'new'
+    end
+
+  end
+
+  def product_params
+    params.require(:product).permit(:title, :description)
+  end
+
+
+
 end
