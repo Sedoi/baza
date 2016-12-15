@@ -1,5 +1,24 @@
 <h1>Продукция</h1>
-<%= link_to "Добавить", new_product_path %>
-<% @products.each do |product| %>
-    <div> <%= product.inspect %> </div>
-<% end %>
+<%= button_to "Добавить новый товар", new_product_path, :method => :get %>
+<br><br>
+<table border = "1" >
+  <tr>
+    <th>Номер</th>
+    <th>Продукт</th>
+    <th>Описание</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+  <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= product.title %></td>
+        <td><%= product.description %></td>
+        <td><%= button_to "Редактировать", edit_product_path(product), :method => :get %></td>
+        <td><%= button_to "Удалить", product, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+  <% end %>
+</table>
+

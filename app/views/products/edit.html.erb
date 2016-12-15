@@ -1,0 +1,8 @@
+<h1>Введите изменения в продукцию</h1>
+<%= form_for @product do |f| %>
+    <label>Название</label>
+    <%= f.text_field :title %><br />
+    <label>Описание</label>
+    <%= f.text_area :description %><br />
+    <%= submit_tag 'Внести изменения в товар' %>
+<% end %>

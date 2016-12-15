@@ -7,8 +7,27 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def edit
+    @product = Product.find(params[:id])
+  end
+
+  def update
+    @product = Product.find(params[:id])
+
+    if @product.update(product_params)
+      redirect_to action: :index
+    else
+      render 'edit'
+    end
+  end
+
   def new
     @product = Product.new
+  end
+
+  def destroy
+    Product.destroy(params[:id])
+    redirect_to action: :index
   end
 
   def create
