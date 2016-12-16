@@ -16,6 +16,7 @@
         <td><%= product.id %></td>
         <td><%= product.title %></td>
         <td><%= product.description %></td>
+        <td><%= button_to "Просмотр", product_path(product), :method => :get %></td>
         <td><%= button_to "Редактировать", edit_product_path(product), :method => :get %></td>
         <td><%= button_to "Удалить", product, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
