@@ -1,8 +1,14 @@
+<%= @product.errors.inspect %>
 <h1>Введите новую продукцию</h1>
 <%= form_for @product do |f| %>
     <label>Название</label>
     <%= f.text_field :title %><br />
+    <%= @product.errors[:title].join(",") if @product.errors.any? %><br /><br />
     <label>Описание</label>
     <%= f.text_area :description %><br />
+    <div class="sup">
+       <%= @product.errors[:description].join(",") if @product.errors.any? %><br /><br />
+    </div>
     <%= submit_tag 'Добавить' %>
 <% end %>
+
