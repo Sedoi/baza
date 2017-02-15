@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     if @product.update(product_params)
       redirect_to action: :index
     else
+
       render 'edit'
     end
   end
