@@ -1,0 +1,20 @@
+<%= form_for @product do |f| %>
+    <!--<% if @product.errors.any? %>
+      <h2>Ошибка</h2>
+        <ul>
+          <% @product.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+    <% end %> --!>
+
+    <label>Название</label>
+    <%= f.text_field :title %><br />
+    <%= @product.errors[:title].join(",") if @product.errors.any? %><br /><br />
+    <label>Описание</label>
+    <%= f.text_area :description %><br />
+    <div class="sup">
+       <%= @product.errors[:description].join(",") if @product.errors.any? %><br /><br />
+    </div>
+    <%= submit_tag 'Добавить' %>
+<% end %>
