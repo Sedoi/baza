@@ -1,4 +1,10 @@
 <h1>Продукция</h1>
+<%= form_tag("/search", method: "get") do %>
+    <%= label_tag(:q, "Поиск по товару:") %>
+    <%= text_field_tag(:q) %>
+    <%= submit_tag("Поиск") %>
+    <br><br>
+<% end %>
 <%= button_to "Добавить новый товар", new_product_path, :method => :get %>
 <br><br>
 <table border = "1" class="header-table" >

@@ -3,6 +3,10 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
+  def search
+    @product = Product.where(param[:q])
+  end
+
   def show
     @product = Product.find(params[:id])
   end
