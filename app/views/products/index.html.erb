@@ -1,8 +1,10 @@
 <h1>Продукция</h1>
+<form class="navbar-form pull-left">
 <%= form_tag("/search", method: "get") do %>
-    <%= label_tag(:q, "Поиск по товару:") %>
-    <%= text_field_tag(:q) %>
+    <%= label_tag(:id, "Поиск по товару:") %>
+    <%= text_field_tag(:id) %>
     <%= submit_tag("Поиск") %>
+      </form>
     <br><br>
 <% end %>
 <%= button_to "Добавить новый товар", new_product_path, :method => :get %>
@@ -17,7 +19,9 @@
     <th></th>
   </tr>
 
-  <% @products.each do |product| %>
+  <% if params[:id].present? %>
+      <%= print(params[:id]) %>
+      <% @products = @products.where(:id =>(params[:id] == "29")) do |product| %>
       <tr>
         <td><%= product.id %></td>
         <td><%= link_to product.title, product_path(product) %></td>
@@ -25,6 +29,19 @@
         <td><%= button_to "Редактировать", edit_product_path(product), :method => :get %></td>
         <td><%= button_to "Удалить", product, method: :delete, data: { confirm: "Are you sure?" } %></td>
       </tr>
+      <% end %>
+
+    <% else %>
+
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= product.id %></td>
+        <td><%= link_to product.title, product_path(product) %></td>
+        <td><%= product.description %></td>
+        <td><%= button_to "Редактировать", edit_product_path(product), :method => :get %></td>
+        <td><%= button_to "Удалить", product, method: :delete, data: { confirm: "Are you sure?" } %></td>
+      </tr>
+
+      <% end %>
   <% end %>
 </table>
-
