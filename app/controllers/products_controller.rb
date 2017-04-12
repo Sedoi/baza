@@ -1,11 +1,12 @@
 class ProductsController < ApplicationController
   def index
-    @products = Product.where(params[:id])
-  end
 
-  #def search
-   # @product = Product.where(params[:title])
-  #end
+      if params[:title] != nil
+    @products = Product.where(:title => params[:title])
+      else
+      @products = Product.all
+      end
+  end
 
   def option
 

@@ -1,8 +1,8 @@
 <h1>Продукция</h1>
 <form class="navbar-form pull-left">
 <%= form_tag("/search", method: "get") do %>
-    <%= label_tag(:id, "Поиск по товару:") %>
-    <%= text_field_tag(:id) %>
+    <%= label_tag(:title, "Поиск по товару:") %>
+    <%= text_field_tag(:title) %>
     <%= submit_tag("Поиск") %>
       </form>
     <br><br>
@@ -19,19 +19,6 @@
     <th></th>
   </tr>
 
-  <% if params[:id].present? %>
-      <%= print(params[:id]) %>
-      <% @products = @products.where(:id =>(params[:id] == "29")) do |product| %>
-      <tr>
-        <td><%= product.id %></td>
-        <td><%= link_to product.title, product_path(product) %></td>
-        <td><%= product.description %></td>
-        <td><%= button_to "Редактировать", edit_product_path(product), :method => :get %></td>
-        <td><%= button_to "Удалить", product, method: :delete, data: { confirm: "Are you sure?" } %></td>
-      </tr>
-      <% end %>
-
-    <% else %>
 
     <% @products.each do |product| %>
       <tr>
@@ -43,5 +30,5 @@
       </tr>
 
       <% end %>
-  <% end %>
+
 </table>
