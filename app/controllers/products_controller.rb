@@ -4,7 +4,7 @@ class ProductsController < ApplicationController
       if params[:title].blank?
         @products = Product.all
       else
-        @products = Product.where(:title => params[:title])
+        @products = Product.where("title LIKE '%#{params[:title]}%'")
       end
   end
 
